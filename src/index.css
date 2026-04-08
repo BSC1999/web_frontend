@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
+@theme {
+  --color-primary-50: #e0f2fe;
+  --color-primary-100: #caf0f8;
+  --color-primary-200: #ade8f4;
+  --color-primary-300: #90e0ef;
+  --color-primary-400: #48cae4;
+  --color-primary-500: #00A8CC;
+  --color-primary-600: #006DAA;
+  --color-primary-700: #012A4A;
+  --color-primary-800: #03045e;
+  --color-primary-900: #012A4A;
+  --color-primary-950: #03045e;
+
+  --color-accent-50: #f0f9ff;
+  --color-accent-500: #00A8CC;
+  --color-accent-600: #00A8CC;
+
+  /* Custom Text Colors */
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-slate-400: #94A3B8;
+
+  /* Custom Alert Colors */
+  --color-emerald-500: #10B981;
+  --color-amber-500: #F59E0B;
+  --color-rose-500: #F43F5E;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F4F8FB] text-slate-900 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    @apply tracking-tight font-bold text-slate-900;
+  }
+}
+
+@utility glass-morphism {
+  @apply bg-white/60 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(31,38,135,0.07)];
+}
+
+@utility premium-card {
+  @apply bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:border-primary-100 hover:shadow-[0_40px_80px_rgba(37,99,235,0.06)] hover:-translate-y-1 transition-all duration-500;
+}
+
+@utility btn-primary {
+  @apply px-8 py-4 rounded-[1.25rem] bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] hover:bg-primary-600 transition-all shadow-[0_20px_40px_rgba(15,23,42,0.2)] active:scale-95 flex items-center justify-center gap-2;
+}
+
+@utility btn-secondary {
+  @apply px-8 py-4 rounded-[1.25rem] bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-95 flex items-center justify-center gap-2;
+}
+
+@utility gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-primary-600 to-primary-400 font-black;
+}
+
+@utility input-field {
+  @apply w-full px-6 py-5 rounded-[1.25rem] bg-white border border-slate-200 focus:border-primary-400 focus:ring-[6px] focus:ring-primary-500/5 outline-none transition-all text-slate-900 placeholder-slate-400 font-medium;
+}
+
+@utility animate-scan {
+  animation: scan 3s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
+
+/* Scroll Utilities */
+.h-screen-no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.overflow-y-auto-if-needed {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+@keyframes scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(400%); }
+}
+
+/* Mawa, Ultra Dark Protocol Engine */
+body.ultra-dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.ultra-dark .glass-morphism {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-blur: 20px;
+}
+
+.ultra-dark .premium-card {
+  background-color: #0a0a0a !important;
+  border-color: #1a1a1a !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+}
+
+.ultra-dark .bg-white {
+  background-color: #0a0a0a !important;
+}
+
+.ultra-dark .bg-slate-50 {
+  background-color: #050505 !important;
+}
+
+.ultra-dark .border-slate-100,
+.ultra-dark .border-slate-200 {
+  border-color: #1a1a1a !important;
+}
+
+.ultra-dark .text-slate-900 {
+  color: #ffffff !important;
+}
+
+.ultra-dark .text-slate-500,
+.ultra-dark .text-slate-400 {
+  color: #94A3B8 !important;
+}
+
+.ultra-dark .input-field {
+  background-color: #050505 !important;
+  border-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.ultra-dark aside {
+  background-color: #000000 !important;
+  border-right-color: #1a1a1a !important;
+}
+
+.ultra-dark header {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-bottom-color: #1a1a1a !important;
+}
