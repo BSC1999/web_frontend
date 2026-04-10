@@ -4,11 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --open --logLevel error",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite --open --logLevel error"
+    "start": "npm run dev"
+  },
+  "engines": {
+    "node": "20.20.2"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
