@@ -1,4 +1,4 @@
-import apiService from './apiService';
+import apiService, { BASE_URL } from './apiService';
 
 const authService = {
   login: async (username, password, role) => {
@@ -35,11 +35,10 @@ const authService = {
       localStorage.setItem('user_id', user.id);
       localStorage.setItem('username', user.username);
       
-      const baseUrl = 'http://127.0.0.1:8000';
       if (user.profile_picture) {
         const picUrl = user.profile_picture.startsWith('http') 
           ? user.profile_picture 
-          : `${baseUrl}${user.profile_picture}`;
+          : `${BASE_URL.replace(/\/$/, '')}${user.profile_picture}`;
         localStorage.setItem('user_profile_pic', picUrl);
       } else {
         localStorage.removeItem('user_profile_pic');

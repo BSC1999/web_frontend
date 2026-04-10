@@ -12,10 +12,9 @@ import {
   Loader2
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import apiService from '../services/apiService';
+import apiService, { BASE_URL } from '../services/apiService';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const BASE_URL = 'http://127.0.0.1:8000';
 
 // ── FDI Teeth Chart ───────────────────────────────────────────────────────────
 const UPPER_RIGHT = [18, 17, 16, 15, 14, 13, 12, 11];

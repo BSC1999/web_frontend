@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import apiService from '../services/apiService';
+import apiService, { BASE_URL } from '../services/apiService';
 import { Loader2 } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 
@@ -67,7 +67,7 @@ const UploadImages = () => {
       
       const imageId = response.data.image_id || response.data.id;
       const imageUrl = response.data.url
-        ? (response.data.url.startsWith('http') ? response.data.url : `http://127.0.0.1:8000${response.data.url}`)
+        ? (response.data.url.startsWith('http') ? response.data.url : `${BASE_URL.replace(/\/$/, '')}${response.data.url}`)
         : files[0].preview;
         
       navigate('/analysis', {
@@ -155,7 +155,7 @@ const UploadImages = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {recentXrays.map((xray, idx) => {
-              const imgSrc = xray.image?.startsWith('http') ? xray.image : `http://127.0.0.1:8000${xray.image}`;
+              const imgSrc = xray.image?.startsWith('http') ? xray.image : `${BASE_URL.replace(/\/$/, '')}${xray.image}`;
               return (
                 <motion.div 
                   key={xray.id} 
